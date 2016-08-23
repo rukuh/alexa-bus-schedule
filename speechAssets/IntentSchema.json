@@ -1,0 +1,17 @@
+{
+  "intents": [
+    {
+      "intent": "GetNextBusIntent",
+      "slots": [
+        {
+          "name": "bus",
+          "type": "AMAZON.LITERAL"
+        }
+      ]
+    },
+    {
+      "intent": "HelpIntent",
+      "slots": []
+    }
+  ]
+}
