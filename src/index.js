@@ -42,7 +42,7 @@ var handleNextBusRequest = function( intent, session, response ) {
                   .Extensions
                   .Distances
                   .PresentableDistance;
-      var cardText = 'The next bus is: ' + text;
+      var cardText = 'The next bus heading ' + text;
     } else {
       var text = 'That bus stop direction does not exist.'
       var cardText = text;
