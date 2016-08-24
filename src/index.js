@@ -1,7 +1,6 @@
-require('dotenv').load();
-
 var http       = require( 'http' )
   , AlexaSkill = require( './AlexaSkill' )
+  , env        = require( './env.js' )
   , APP_ID     = process.env.APP_ID
   , MTA_KEY    = process.env.MTA_KEY;
 
