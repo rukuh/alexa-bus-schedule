@@ -29,6 +29,10 @@ var getJsonFromMta = function( stopId, callback ){
   });
 };
 
+function upperCase( string ) {
+  return string[ 0 ].toUpperCase() + string.slice( 1 );
+}
+
 var handleNextBusRequest = function( intent, session, response ) {
   getJsonFromMta( intent.slots.bus.value, function( data ) {
     if( data.Siri.ServiceDelivery.StopMonitoringDelivery[ 0 ].MonitoredStopVisit ) {
@@ -42,14 +46,14 @@ var handleNextBusRequest = function( intent, session, response ) {
                   .Extensions
                   .Distances
                   .PresentableDistance;
-      var cardText = 'The next bus heading ' + text;
+      var cardText = 'The next bus is: ' + text;
     } else {
-      var text = 'That bus stop direction does not exist.'
+      var text = 'That bus stop does not exist.'
       var cardText = text;
     }
 
-    var heading = 'Next bus for stop: ' + intent.slots.bus.value;
-    response.tellWithCard( text, heading, cardText );
+    var heading = 'Next bus heading ' + upperCase( intent.slots.bus.value );
+    response.tellWithCard(text, heading, cardText);
   });
 };
 
